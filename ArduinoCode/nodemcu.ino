@@ -33,7 +33,7 @@ void connect() {
     digitalWrite(D4,LOW);
 }
 
-void loop(void) {
+void loop() {
     long value= 0;
     client.loop();
     if(!client.connected()) {
@@ -41,8 +41,8 @@ void loop(void) {
     }
     delay(1000);
     value = analogRead(A0);
-    value = map(valPot,0,1023,0,255);
+    value = map(value,0,1023,0,255);
     
-    client.publish("message", (String)valPot);
+    client.publish("message", (String)value);
     
 }
